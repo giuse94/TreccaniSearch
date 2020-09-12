@@ -1,2 +1,8 @@
 package/*.js
+
+# Should it be tracked or not? There are good points
+# for both choices, but eventually it was ignored.
 ts/node_modules/
+
+# This folder is used to manage submissions to AMO.
+submission/
