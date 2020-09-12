@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Ricerca su Treccani",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "author": "Giuse",
   "description": "Effettua una ricerca su Treccani direttamente dalla barra degli indirizzi del browser.",
@@ -10,6 +10,8 @@
   "background": {
     "page": "background_page.html"
   },
-  "omnibox": { "keyword": "3c" },
-  "permissions": ["http://www.treccani.it/"]
+  "omnibox": {
+    "keyword": "3c"
+  },
+  "permissions": ["https://www.treccani.it/"]
 }

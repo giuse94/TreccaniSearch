@@ -1,4 +1,4 @@
-export const BaseURL = "http://www.treccani.it";
+export const BaseURL = "https://www.treccani.it";
 export const AutoCompleteUrl = BaseURL + "/autocomplete/?q=";
 export const SearchUrl = BaseURL + "/enciclopedia/ricerca/";
 const Hints = ['zeugma', 'pangolino', 'resipiscenza', 'trumeau', 'colbacco', 'frattale', 'collibo', 'ottante', 'criolite'];
