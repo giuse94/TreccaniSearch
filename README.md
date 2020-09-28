@@ -3,12 +3,14 @@ This repository hosts the source code of the "[Ricerca su Treccani](https://addo
 Firefox extension, which lets you search the [Treccani online corpus](http://www.treccani.it) directly from the browser address bar.
 
 # Building the extension from source
-The source code has been built on Windows 10 Home Edition, version 1909 (build 18363.1016), using the following tools:
+Source code built on Windows 10 Home Edition, version 1909 (build 18363.1082), using the following tools:
 * Node.js version 12.16.2;
 * npm version 6.14.4;
-* Typescript version 3.6.2.
+* TypeScript version 4.0.3.
 
-You should be able to build the project on other platforms and with different versions, too.
+You should be able to build the project on other platforms and with different versions, too. However,
+[TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html) or higher is required as optional
+property access (`?.`) and nullish coalescing (`??`) operators are used.
 
 ## Prerequisites
 To build this project, you first need to download and install [Node.js](https://nodejs.org/en/) (which includes
