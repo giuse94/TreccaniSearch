@@ -46,18 +46,24 @@ browser.omnibox.onInputEntered.addListener(
   if (!text.startsWith(TreccaniSearch.BaseURL)) {
     url = TreccaniSearch.SearchUrl + text;
   }
-  
-  switch (disposition) {
-    case "currentTab":
-      browser.tabs.update({url});
-      break;
-    case "newForegroundTab":
-      browser.tabs.create({url});
-      break;
-    case "newBackgroundTab":
-      browser.tabs.create({url, active: false});
-      break;
-  }
+
+  // Get user preference (or default option value) and open the page accordingly.
+  browser.storage.local.get("alwaysNewTab").then((item: { [key: string]: boolean}) => {
+    if (item?.alwaysNewTab ?? true) {
+      disposition = "newBackgroundTab";
+    }
+    switch (disposition) {
+      case "currentTab":
+        browser.tabs.update({url});
+        break;
+      case "newForegroundTab":
+        browser.tabs.create({url});
+        break;
+      case "newBackgroundTab":
+        browser.tabs.create({url, active: false});
+        break;
+    }
+  });
 });
 
 function createSuggestionsFromResponse(response: Response) {
