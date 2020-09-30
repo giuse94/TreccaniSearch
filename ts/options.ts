@@ -1,6 +1,6 @@
 // Restore user preference or default option value when opening the options page.
 document.addEventListener("DOMContentLoaded", () => {
-  browser.storage.local.get("alwaysNewTab").then((item: { [key: string]: boolean }) => {
+  browser.storage.local.get("alwaysNewTab").then( (item: { [key: string]: boolean }) => {
     let checkBoxElement = document.getElementById("alwaysNewTabOption") as HTMLInputElement;
     checkBoxElement.checked = item?.alwaysNewTab ?? true;
   });

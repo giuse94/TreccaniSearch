@@ -48,7 +48,7 @@ browser.omnibox.onInputEntered.addListener(
   }
 
   // Get user preference (or default option value) and open the page accordingly.
-  browser.storage.local.get("alwaysNewTab").then((item: { [key: string]: boolean}) => {
+  browser.storage.local.get("alwaysNewTab").then( (item: { [key: string]: boolean }) => {
     if (item?.alwaysNewTab ?? true) {
       disposition = "newBackgroundTab";
     }
@@ -67,8 +67,8 @@ browser.omnibox.onInputEntered.addListener(
 });
 
 function createSuggestionsFromResponse(response: Response) {
-  return new Promise((resolve: (value: browser.omnibox.SuggestResult[]) => void) => {    
-    response.json().then((json: TreccaniSearch.OpusEntity[]) => {
+  return new Promise( (resolve: (value: browser.omnibox.SuggestResult[]) => void) => {    
+    response.json().then( (json: TreccaniSearch.OpusEntity[]) => {
       // Up to six suggestions only are shown in the address bar, including the
       // default suggestion (if set).
       const MaxNumberOfSuggestions = 6;
@@ -96,7 +96,10 @@ function createSuggestionsFromResponse(response: Response) {
           description += entry.activity === "" ?
             entry.opera_online : entry.activity + " – " + entry.opera_online;
         }
-        suggestions.push({content: fullURL, description: description});
+        suggestions.push({
+          content: fullURL,
+          description: description
+        });
       }
       return resolve(suggestions);
     })
