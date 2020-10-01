@@ -29,6 +29,30 @@ browser.omnibox.onInputChanged.addListener(
 
   fetch(request)
     .then(createSuggestionsFromResponse)
+    // Handle connection errors by showing a message in the address bar:
+    // if the user is offline, ask to check Internet connection;
+    // if the server does not respond, you can still try to search.
+    .catch( (exception: any): Promise<browser.omnibox.SuggestResult[]> => {
+      if (exception instanceof TypeError) {
+        return new Promise( (resolve: (value: browser.omnibox.SuggestResult[]) => void) => {
+          if (!navigator.onLine) {
+            console.error(`Couldn't connect to ${TreccaniSearch.BaseURL}: check Internet conncetion.`)
+            return resolve([{
+              content: TreccaniSearch.BaseURL,
+              description: "Nessun suggerimento disponibile: controlla la connessione a Internet"
+            }]);
+          }
+          console.error(`Couldn't retrieve suggestions from ${url}.`)
+          return resolve([{
+            content: TreccaniSearch.SearchUrl + text,
+            description: `Nessun suggerimento disponibile: cerca "${text}" su Treccani`
+          }]);
+        });
+      }
+      else {
+        throw exception;
+      }
+    })
     .then(addSuggestions);
 });
 
