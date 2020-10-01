@@ -48,8 +48,11 @@ browser.omnibox.onInputEntered.addListener(
   }
 
   // Get user preference (or default option value) and open the page accordingly.
-  browser.storage.local.get("alwaysNewTab").then( (item: { [key: string]: boolean }) => {
+  browser.storage.local.get(["alwaysNewTab", "backgroundNewTab"]).then( (item: { [key: string]: boolean }) => {
     if (item?.alwaysNewTab ?? true) {
+      disposition = "newForegroundTab";
+    }
+    if ((item?.backgroundNewTab ?? false) && disposition !== "currentTab") {
       disposition = "newBackgroundTab";
     }
     switch (disposition) {
