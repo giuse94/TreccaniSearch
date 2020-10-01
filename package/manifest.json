@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Ricerca su Treccani",
-  "version": "2.0.0",
+  "version": "2.1.0",
 
   "author": "Giuse",
   "description": "Effettua una ricerca su Treccani direttamente dalla barra degli indirizzi del browser.",
