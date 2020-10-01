@@ -1,12 +1,13 @@
 # About
 This repository hosts the source code of the "[Ricerca su Treccani](https://addons.mozilla.org/it/firefox/addon/ricerca-su-treccani/)"
-Firefox extension, which lets you search the [Treccani online corpus](http://www.treccani.it) directly from the browser address bar.
+Firefox extension, which lets you search the [Treccani online corpus](https://www.treccani.it) directly from the browser address bar.
 
 # Building the extension from source
 Source code built on Windows 10 Home Edition, version 1909 (build 18363.1082), using the following tools:
 * Node.js version 12.16.2;
 * npm version 6.14.4;
-* TypeScript version 4.0.3.
+* TypeScript version 4.0.3;
+* @types/firefox-webext-browser package version 78.0.1.
 
 You should be able to build the project on other platforms and with different versions, too. However,
 [TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html) or higher is required as optional
@@ -14,7 +15,7 @@ property access (`?.`) and nullish coalescing (`??`) operators are used.
 
 ## Prerequisites
 To build this project, you first need to download and install [Node.js](https://nodejs.org/en/) (which includes
-[npm](https://www.npmjs.com/get-npm)), [Typescript](https://www.typescriptlang.org/) and optionally [Git](https://git-scm.com/).
+[npm](https://www.npmjs.com/get-npm)), [TypeScript](https://www.typescriptlang.org/) and optionally [Git](https://git-scm.com/).
 For more information on how to install these tools, please see the links above.
 
 ## Get the code
