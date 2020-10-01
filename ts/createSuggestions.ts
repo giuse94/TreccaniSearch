@@ -18,7 +18,7 @@ browser.omnibox.onInputChanged.addListener(
   // so response.json() - called in createSuggestionsFromResponse() - would raise
   // an error (unexpected end of data). Then we do not send a request.
   text = text.trim();
-  if (text=== "") {
+  if (text === "") {
     return;
   }
 
@@ -98,7 +98,7 @@ function createSuggestionsFromResponse(response: Response) {
         }
         suggestions.push({
           content: fullURL,
-          description: description
+          description
         });
       }
       return resolve(suggestions);
