@@ -23,8 +23,9 @@ browser.omnibox.onInputChanged.addListener(
   }
 
   let headers = new Headers({"Accept": "application/json"});
-  let init: RequestInit = {method: 'GET', headers};
-  let url = TreccaniSearch.AutoCompleteUrl + text;
+  let init: RequestInit = {method: "POST", body: `{ "query": "${text}" }`, headers};
+  // The text is appended to the URL to easily retrieve it in createSuggestionsFromResponse().
+  let url = TreccaniSearch.AutoCompleteUrl + "/?q=" + text;
   let request = new Request(url, init);
 
   fetch(request)
